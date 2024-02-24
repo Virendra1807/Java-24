@@ -1,0 +1,198 @@
+
+Exception handling programs:
+------------------------------
+
+1) demonstrating try-catch-finally 
+
+
+
+import java.io.IOException;
+import java.io.DataInputStream;
+
+class Test
+{
+	public static void main(String ar[]) throws IOException
+	{
+		int a,b;
+		float c;
+		DataInputStream dis = new DataInputStream(System.in);
+		System.out.println("main starts");
+
+		try
+		{
+			System.out.println("Enter 2 values");
+			a = Integer.parseInt(dis.readLine());
+			b = Integer.parseInt(dis.readLine());
+			c = a/b;
+			System.out.println("Division is : " + c);
+		}
+		catch(ArithmeticException ae)
+		{
+			System.out.println("Cannot divide by ZERO : "+ ae.getClass() );
+		}
+		finally
+		{
+			System.out.println("Finally block executes....");
+		}
+
+		System.out.println("Out of try-catch-finally blocks");
+		System.out.println("main ends");
+
+	}
+}
+
+
+===================================
+===================================
+
+2) demonstrating try-multiple catch-finally blocks:
+
+
+import java.io.IOException;
+import java.io.DataInputStream;
+
+class Test
+{
+	public static void main(String ar[]) throws IOException
+	{
+		int a,b,ind;
+		float c;
+		int arr[] = {10,20,30,40,50};
+
+		DataInputStream dis = new DataInputStream(System.in);
+		System.out.println("main starts");
+
+		try
+		{
+			System.out.println("Enter 2 values");
+			a = Integer.parseInt(dis.readLine());
+			b = Integer.parseInt(dis.readLine());
+			c = a/b;
+			System.out.println("Divisoin is : " + c);
+			
+			System.out.println("Enter index number, which you want to print");
+			ind = Integer.parseInt(dis.readLine());
+			System.out.println("Requested element is : " + arr[ind]);
+		}
+		catch(ArithmeticException ae)
+		{
+			System.out.println("Cannot divide by ZERO : "+ ae.getClass() );
+		}
+		catch(ArrayIndexOutOfBoundsException aiob)
+		{
+			System.out.println("Invalid Index : " + aiob.getMessage());
+		}
+		finally
+		{
+			System.out.println("Finally block executes....");
+		}
+
+		System.out.println("Out of try-catch-finally blocks");
+		System.out.println("main ends");
+
+	}
+}
+
+============================================
+============================================
+
+3) try-finally blocks
+
+
+import java.io.IOException;
+import java.io.DataInputStream;
+
+class Test
+{
+	public static void main(String ar[]) throws IOException
+	{
+		int a,b,ind;
+		float c;
+		int arr[] = {10,20,30,40,50};
+
+		DataInputStream dis = new DataInputStream(System.in);
+		System.out.println("main starts");
+
+		try
+		{
+			System.out.println("Enter 2 values");
+			a = Integer.parseInt(dis.readLine());
+			b = Integer.parseInt(dis.readLine());
+			c = a/b;
+			System.out.println("Divisoin is : " + c);
+			
+			System.out.println("Enter index number, which you want to print");
+			ind = Integer.parseInt(dis.readLine());
+			System.out.println("Requested element is : " + arr[ind]);
+		}
+		finally
+		{
+			System.out.println("Finally block executes....");
+		}
+
+		System.out.println("Out of try-finally blocks");
+		System.out.println("main ends");
+
+	}
+}
+
+======================================
+======================================
+
+ User defined exception
+-------------------------
+
+import java.io.IOException;
+import java.io.DataInputStream;
+
+class NumberTooSmallException extends Exception
+{
+	public NumberTooSmallException()
+	{
+		super("java.ravi.NumberTooSmallException");
+	}
+
+	public NumberTooSmallException(String m)
+	{
+		super(m);
+	}
+}
+
+
+class Test
+{
+	public static void main(String ar[]) throws IOException
+	{
+		float a,b,c;
+		DataInputStream dis = new DataInputStream(System.in);
+
+		System.out.println("main starts");
+
+		try
+		{
+			System.out.println("Enter 2 float values");
+			a = Float.parseFloat(dis.readLine());
+			b = Float.parseFloat(dis.readLine());
+
+			if(a<0.5 || b<0.5)
+			{
+				throw new NumberTooSmallException(" message to " );
+			}
+
+			c = a * b;
+			System.out.println("Multiplication is : " + c);
+		}		
+		catch(NumberTooSmallException ae)
+		{
+			System.out.println(ae.toString());
+		}
+
+		System.out.println("Out of try-catch-finally blocks");
+		System.out.println("main ends");
+
+	}
+}
+
+
+=====================================================
+
