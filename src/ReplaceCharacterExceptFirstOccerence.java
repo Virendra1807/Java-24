@@ -1,15 +1,7 @@
 import java.util.Scanner;
 
+// Replace first character occurence in string by $ except first character
 public class ReplaceCharacterExceptFirstOccerence {
-    public static void main(String[] args) {
-        // Replace first character occurence in string by $ except first character
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a String : ");
-        String str = sc.nextLine();
-
-        String finalStr = change_char(str);
-        System.out.println(finalStr);
-    }
 
     public static String change_char(String s) {
         // complete the function template
@@ -28,5 +20,14 @@ public class ReplaceCharacterExceptFirstOccerence {
         }
 
         return res;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a String : ");
+        String str = sc.nextLine();
+
+        String finalStr = change_char(str);
+        System.out.println(finalStr);
     }
 }
