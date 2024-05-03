@@ -28,6 +28,8 @@ class Main {
         ArrayList<Stud> students = new ArrayList<>();
 
         // Accept data for each student
+
+        scanner.nextLine();
         for (int i = 0; i < numStudents; i++) {
             System.out.println("Enter details for student " + (i + 1) + ":");
             System.out.print("Name: ");
@@ -52,12 +54,17 @@ class Main {
         }
 
         // Print names of only female students whose grade is A
-        System.out.println("\nFemale students whose grade is A:");
+        System.out.println("\nAvg marks of female students :");
+        int ttl_marks = 0;
+        int girlsStud = 0;
         for (Stud student : students) {
-            if (student.gender.equalsIgnoreCase("female") && student.grade == 'A') {
-                System.out.println(student.name);
+            if (student.gender.equalsIgnoreCase("female") && student.grade == 'A' || student.grade == 'B') {
+                ttl_marks += (int) student.grade;
+                girlsStud++;
             }
         }
+        double avgOfGirlsMarks = (double) ttl_marks /girlsStud;
+        System.out.println(avgOfGirlsMarks);
 
         scanner.close();
     }
