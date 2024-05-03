@@ -3,13 +3,13 @@ package HackerRankProblems;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Student {
+class Stud {
     String name;
     String gender;
     int age;
     char grade;
 
-    Student(String name, String gender, int age, char grade) {
+    Stud(String name, String gender, int age, char grade) {
         this.name = name;
         this.gender = gender;
         this.age = age;
@@ -24,9 +24,8 @@ class Main {
         // Accept the number of students
         System.out.print("Enter the number of students: ");
         int numStudents = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
 
-        ArrayList<Student> students = new ArrayList<>();
+        ArrayList<Stud> students = new ArrayList<>();
 
         // Accept data for each student
         for (int i = 0; i < numStudents; i++) {
@@ -41,12 +40,12 @@ class Main {
             char grade = scanner.next().charAt(0);
             scanner.nextLine(); // Consume newline
 
-            students.add(new Student(name, gender, age, grade));
+            students.add(new Stud(name, gender, age, grade));
         }
 
         // Print names of students whose age is more than 20
         System.out.println("\nStudents whose age is more than 20:");
-        for (Student student : students) {
+        for (Stud student : students) {
             if (student.age > 20) {
                 System.out.println(student.name);
             }
@@ -54,7 +53,7 @@ class Main {
 
         // Print names of only female students whose grade is A
         System.out.println("\nFemale students whose grade is A:");
-        for (Student student : students) {
+        for (Stud student : students) {
             if (student.gender.equalsIgnoreCase("female") && student.grade == 'A') {
                 System.out.println(student.name);
             }
