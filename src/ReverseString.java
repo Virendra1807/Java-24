@@ -9,8 +9,9 @@ public class ReverseString {
     public static String reverseStr(String a){
         String finalString = "";
         for(int i = a.length()-1; i >= 0; i--) {
-            finalString += a.charAt(i);
+            finalString = finalString + a.charAt(i);
         }
+
 
         return finalString;
     }
