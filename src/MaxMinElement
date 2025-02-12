@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Main {
+
+  public static void main(String ar[]){
+   System.out.println("Give 5 elements of array :");
+   int arr2[] = new int[5];
+   Scanner sc = new Scanner(System.in);
+
+   for(int i = 0; i < arr2.length; i++){
+    arr2[i] = sc.nextInt();
+   }
+   int res[] = findMinMaxEle(arr2);
+   System.out.println("Max element is : "+ res[0]);
+   System.out.println("Min element is : "+ res[1]);
+
+  }
+
+  public static int[] findMinMaxEle(int[] arr){
+   int maxElement = arr[0];
+   int minElement = arr[0];
+
+   for(int num : arr){
+    if(maxElement < num){
+     maxElement = num;
+    }
+    if(minElement > num){
+     minElement = num;
+    }
+   }
+    return new int[] { maxElement, minElement };
+
+  }
+
+}
